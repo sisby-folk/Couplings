@@ -1,18 +1,19 @@
 package dev.sapphic.couplings;
 
-import folk.sisby.kaleido.api.WrappedConfig;
+import folk.sisby.kaleido.api.ReflectiveConfig;
 import folk.sisby.kaleido.lib.quiltconfig.api.annotations.Comment;
 import folk.sisby.kaleido.lib.quiltconfig.api.annotations.SerializedNameConvention;
 import folk.sisby.kaleido.lib.quiltconfig.api.metadata.NamingSchemes;
+import folk.sisby.kaleido.lib.quiltconfig.api.values.TrackedValue;
 
 @SerializedNameConvention(NamingSchemes.SNAKE_CASE)
-public class CouplingsConfig extends WrappedConfig {
+public class CouplingsConfig extends ReflectiveConfig {
     @Comment("Couple regardless of whether the player is sneaking")
-    boolean ignoreSneaking = false;
+    public final TrackedValue<Boolean> ignoreSneaking = value(false);
     @Comment("Couple doors with opposing hinges")
-    boolean coupleDoors = true;
+    public final TrackedValue<Boolean>  coupleDoors = value(true);
     @Comment("Couple fence gates above and below on the same axis")
-    boolean coupleFenceGates = true;
+    public final TrackedValue<Boolean>  coupleFenceGates = value(true);
     @Comment("Couple trapdoors along either sides and opposing")
-    boolean coupleTrapdoors = true;
+    public final TrackedValue<Boolean>  coupleTrapdoors = value(true);
 }

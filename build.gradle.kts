@@ -1,7 +1,7 @@
 import java.time.Instant
 
 plugins {
-  id(/*net.fabricmc.*/ "fabric-loom") version "1.3.2"
+  id(/*net.fabricmc.*/ "fabric-loom") version "1.9.+"
   id("io.github.juuxel.loom-quiltflower") version "1.10.0"
   id("net.nemerosa.versioning") version "3.0.0"
   id("org.gradle.signing")

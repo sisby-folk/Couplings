@@ -8,11 +8,11 @@ import folk.sisby.kaleido.lib.quiltconfig.api.metadata.NamingSchemes;
 @SerializedNameConvention(NamingSchemes.SNAKE_CASE)
 public class CouplingsConfig extends WrappedConfig {
     @Comment("Couple regardless of whether the player is sneaking")
-    boolean ignoreSneaking;
+    boolean ignoreSneaking = false;
     @Comment("Couple doors with opposing hinges")
-    boolean coupleDoors;
+    boolean coupleDoors = true;
     @Comment("Couple fence gates above and below on the same axis")
-    boolean coupleFenceGates;
+    boolean coupleFenceGates = true;
     @Comment("Couple trapdoors along either sides and opposing")
-    boolean coupleTrapdoors;
+    boolean coupleTrapdoors = true;
 }

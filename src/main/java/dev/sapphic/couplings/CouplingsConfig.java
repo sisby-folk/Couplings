@@ -5,7 +5,7 @@ import folk.sisby.kaleido.lib.quiltconfig.api.annotations.Comment;
 import folk.sisby.kaleido.lib.quiltconfig.api.annotations.SerializedNameConvention;
 import folk.sisby.kaleido.lib.quiltconfig.api.metadata.NamingSchemes;
 
-@SerializedNameConvention(NamingSchemes.LOWER_CAMEL_CASE)
+@SerializedNameConvention(NamingSchemes.SNAKE_CASE)
 public class CouplingsConfig extends WrappedConfig {
     @Comment("Couple regardless of whether the player is sneaking")
     boolean ignoreSneaking;

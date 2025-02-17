@@ -42,24 +42,24 @@ public final class Couplings implements ModInitializer {
       return CouplingsPlayer.ignoresSneaking(player);
     }
 
-    return CONFIG.ignoreSneaking;
+    return CONFIG.ignoreSneaking.value();
   }
 
   public static boolean couplesDoors(final Level level) {
-    return level.isClientSide() ? CouplingsClient.serverCouplesDoors() : CONFIG.coupleDoors;
+    return level.isClientSide() ? CouplingsClient.serverCouplesDoors() : CONFIG.coupleDoors.value();
   }
 
   public static boolean couplesFenceGates(final Level level) {
-    return level.isClientSide() ? CouplingsClient.serverCouplesFenceGates() : CONFIG.coupleFenceGates;
+    return level.isClientSide() ? CouplingsClient.serverCouplesFenceGates() : CONFIG.coupleFenceGates.value();
   }
 
   public static boolean couplesTrapdoors(final Level level) {
-    return level.isClientSide() ? CouplingsClient.serverCouplesTrapdoors() : CONFIG.coupleTrapdoors;
+    return level.isClientSide() ? CouplingsClient.serverCouplesTrapdoors() : CONFIG.coupleTrapdoors.value();
   }
 
   @Override
   public void onInitialize() {
-    if (!CONFIG.coupleDoors || !CONFIG.coupleFenceGates || !CONFIG.coupleTrapdoors) {
+    if (!CONFIG.coupleDoors.value() || !CONFIG.coupleFenceGates.value() || !CONFIG.coupleTrapdoors.value()) {
       LogManager.getLogger().warn("No features are enabled, this could be a bug!");
     }
     ServerPlayNetworking.registerGlobalReceiver(
@@ -78,9 +78,9 @@ public final class Couplings implements ModInitializer {
         (listener, sender, server) -> {
           var couplings = 0b000;
 
-          couplings |= (CONFIG.coupleDoors ? 1 : 0) << 2;
-          couplings |= (CONFIG.coupleFenceGates ? 1 : 0) << 1;
-          couplings |= CONFIG.coupleTrapdoors ? 1 : 0;
+          couplings |= (CONFIG.coupleDoors.value() ? 1 : 0) << 2;
+          couplings |= (CONFIG.coupleFenceGates.value() ? 1 : 0) << 1;
+          couplings |= CONFIG.coupleTrapdoors.value() ? 1 : 0;
 
           final var buffer =
               Unpooled.buffer(Byte.BYTES, Byte.BYTES).writeByte(couplings).asReadOnly();

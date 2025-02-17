@@ -64,7 +64,7 @@ public final class CouplingsClient implements ClientModInitializer {
 
     ClientPlayConnectionEvents.JOIN.register(
         (listener, sender, minecraft) -> {
-          final var clientConfig = Couplings.IGNORE_SNEAKING ? 1 : 0;
+          final var clientConfig = Couplings.CONFIG.ignoreSneaking.value() ? 1 : 0;
 
           ClientPlayNetworking.send(
               Couplings.CLIENT_CONFIG,

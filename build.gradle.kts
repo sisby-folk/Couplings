@@ -1,7 +1,7 @@
 import java.time.Instant
 
 plugins {
-  id(/*net.fabricmc.*/ "fabric-loom") version "0.12.55"
+  id(/*net.fabricmc.*/ "fabric-loom") version "1.9.+"
   id("io.github.juuxel.loom-quiltflower") version "1.7.3"
   id("net.nemerosa.versioning") version "3.0.0"
   id("org.gradle.signing")
@@ -67,7 +67,7 @@ repositories {
 }
 
 dependencies {
-  minecraft("com.mojang:minecraft:1.19")
+  minecraft("com.mojang:minecraft:1.19.2")
 
   mappings(loom.layered {
     officialMojangMappings {
@@ -75,17 +75,15 @@ dependencies {
     }
   })
 
-  modImplementation("net.fabricmc:fabric-loader:0.14.8")
+  modImplementation("net.fabricmc:fabric-loader:0.16.9")
 
-  modImplementation(include(fabricApi.module("fabric-api-base", "0.58.0+1.19"))!!)
-  modImplementation(include(fabricApi.module("fabric-networking-api-v1", "0.58.0+1.19"))!!)
+  modImplementation(include(fabricApi.module("fabric-api-base", "0.77.0+1.19.2"))!!)
+  modImplementation(include(fabricApi.module("fabric-networking-api-v1", "0.77.0+1.19.2"))!!)
 
   implementation(include("folk.sisby:kaleido-config:0.3.1+1.3.2")!!)
 
   implementation("org.jetbrains:annotations:23.0.0")
   implementation("org.checkerframework:checker-qual:3.23.0")
-
-  modRuntimeOnly("com.terraformersmc:modmenu:4.0.5")
 
   // Compat
   modCompileOnly("maven.modrinth:dramatic-doors:1.19.2-3.1.3")

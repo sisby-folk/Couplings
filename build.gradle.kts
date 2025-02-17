@@ -47,6 +47,15 @@ repositories {
       includeModule("com.terraformersmc", "modmenu")
     }
   }
+  exclusiveContent {
+    forRepository {
+      maven("https://repo.sleeping.town/")
+    }
+
+    filter {
+      includeModule("folk.sisby", "kaleido-config")
+    }
+  }
 }
 
 dependencies {
@@ -63,8 +72,7 @@ dependencies {
   modImplementation(include(fabricApi.module("fabric-api-base", "0.83.0+1.20"))!!)
   modImplementation(include(fabricApi.module("fabric-networking-api-v1", "0.83.0+1.20"))!!)
 
-  implementation(include("com.electronwill.night-config:core:3.6.6")!!)
-  implementation(include("com.electronwill.night-config:toml:3.6.6")!!)
+  implementation(include("folk.sisby:kaleido-config:0.3.1+1.3.2")!!)
 
   implementation("org.jetbrains:annotations:24.0.1")
   implementation("org.checkerframework:checker-qual:3.36.0")
